@@ -5,118 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Activity Calendar 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-        .month-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 20px;
-            width: 250px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .month-card:hover {
-            transform: scale(1.05);
-        }
-        .month-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .activities {
-            list-style: none;
-            padding: 0;
-        }
-        .activities li {
-            padding: 5px 0;
-        }
-        .submit-activity {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .submit-activity button {
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .submit-activity button:hover {
-            background-color: #0056b3;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        form input, form textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        form button {
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        form button:hover {
-            background-color: #218838;
-        }
-        @media (max-width: 768px) {
-            .month-card {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container">
+<header>
+    <h1>Church Activity Calendar 2025</h1>
+    <p>Welcome to our church activity calendar. Click on a month to view planned activities. Use the button below to submit your activity for any month.</p>
+</header>
+
+<main class="container">
     <div class="month-card" style="background-color: #f8d7da;">
         <div class="month-title">January</div>
         <ul class="activities">
-            <li>New Year's Service</li>
-            <li>Community Outreach</li>
+            <li><strong>1st:</strong> New Year's Service</li>
+            <li><strong>15th:</strong> Community Outreach</li>
         </ul>
     </div>
     <div class="month-card" style="background-color: #fff3cd;">
         <div class="month-title">February</div>
         <ul class="activities">
-            <li>Valentine's Day Event</li>
-            <li>Bible Study</li>
+            <li><strong>14th:</strong> Valentine's Day Event</li>
+            <li><strong>20th:</strong> Bible Study</li>
         </ul>
     </div>
     <!-- Repeat similar structure for other months -->
-</div>
+</main>
 
 <div class="submit-activity">
-    <button onclick="document.getElementById('submitForm').style.display='block'">Submit Your Activity</button>
+    <button onclick="toggleForm()">Submit Your Activity</button>
 </div>
 
-<div id="submitForm" style="display: none;">
+<div id="submitForm" class="form-container">
     <form action="https://formspree.io/f/your-formspree-id" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -125,19 +45,7 @@
     </form>
 </div>
 
-<script>
-    // JavaScript to handle form submission and display logic
-    document.querySelectorAll('.month-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const activities = card.querySelector('.activities');
-            if (activities.style.display === 'none' || !activities.style.display) {
-                activities.style.display = 'block';
-            } else {
-                activities.style.display = 'none';
-            }
-        });
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
